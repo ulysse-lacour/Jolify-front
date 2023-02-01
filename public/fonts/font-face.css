@@ -1,0 +1,163 @@
+/**
+ * The Inter typeface family
+ * Version: 3.15
+ *
+ * Inter is a typeface carefully crafted & designed for computer screens.
+ * @link https://rsms.me/inter/
+ *
+ */
+
+@font-face {
+  font-family: 'I';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/I-300.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'I';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/I-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'I';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/I-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'I';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/I-600.woff2') format('woff2');
+}
+
+/* Fancy fonts */
+
+@font-face {
+  font-family: 'CirrusCumulus';
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/CirrusCumulus.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Director';
+  font-style: bold;
+  font-display: swap;
+  src: url('/fonts/Director-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Typefesse';
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Typefesse_Claire-Obscure.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Typefesse-full';
+  font-style: normal;
+  font-display: swap;
+  src: url('/fonts/Typefesse_Pleine.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 900;
+  font-display: swap;
+  src: url('/fonts/Outfit-Black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 800;
+  font-display: swap;
+  src: url('/fonts/Outfit-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Outfit-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/Outfit-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Outfit-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Outfit-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 300;
+  font-display: swap;
+  src: url('/fonts/Outfit-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 200;
+  font-display: swap;
+  src: url('/fonts/Outfit-ExtraLight.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Outfit';
+  font-weight: 100;
+  font-display: swap;
+  src: url('/fonts/Outfit-Thin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Chillax-Light';
+  font-display: swap;
+  src: url('/fonts/Chillax-Light.otf');
+}
+
+@font-face {
+  font-family: 'Chillax-Regular';
+  font-display: swap;
+  src: url('/fonts/Chillax-Regular.otf');
+}
+
+@font-face {
+  font-family: 'Chillax-Medium';
+  font-display: swap;
+  src: url('/fonts/Chillax-Medium.otf');
+}
+
+@font-face {
+  font-family: 'Chillax-Semibold';
+  font-display: swap;
+  src: url('/fonts/Chillax-Semibold.otf');
+}
+
+@font-face {
+  font-family: 'Boska-Regular';
+  font-display: swap;
+  src: url('/fonts/Boska-Regular.otf');
+}

@@ -1,0 +1,21 @@
+query specificPlaylistData($playlistId: String!, $offset: Int!) {
+  specificPlaylistData(playlistId: $playlistId, offset: $offset) {
+    success
+    playlist {
+      playlistName
+      playlistDescription
+      playlistUrl
+      ownerName
+      ownerUrl
+    }
+    tracks {
+      id
+      artist
+      title
+      link
+      cover
+      preview
+    }
+    lastPage
+  }
+}

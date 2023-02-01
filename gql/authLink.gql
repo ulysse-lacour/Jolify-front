@@ -1,0 +1,6 @@
+query authLink {
+  authLink {
+    success
+    href
+  }
+}

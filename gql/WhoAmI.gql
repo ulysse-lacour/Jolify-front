@@ -1,0 +1,10 @@
+query WhoAmI {
+  whoami {
+    id
+    username
+    firstName
+    lastName
+    email
+    hasSpotifyToken
+  }
+}

@@ -1,0 +1,19 @@
+query userPlaylistsData($offset: Int!) {
+  userPlaylistsData(offset: $offset) {
+    success
+    details
+    owner {
+      id
+      name
+      href
+    }
+    playlists {
+      id
+      name
+      description
+      href
+      image
+    }
+    lastPage
+  }
+}

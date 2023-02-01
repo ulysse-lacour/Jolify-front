@@ -1,0 +1,13 @@
+query mySuggestions($playlistId: String!, $offset: Int!) {
+  mySuggestions(playlistId: $playlistId, offset: $offset) {
+    lastPage
+    tracks {
+      id
+      artist
+      title
+      link
+      cover
+      preview
+    }
+  }
+}
