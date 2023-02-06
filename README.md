@@ -89,7 +89,7 @@ More information about the usage of this directory in [the documentation](https:
 <br/>
 <br/>
 
-# Deplo
+# Deploy
 
 ## Set up nginx
 
@@ -103,6 +103,8 @@ And add :
 
 ```nginx
 server {
+    listen 80;
+    listen [::]:80;
     index index.html;
     server_name IP_ADRESS_OR_DOMAIN_NAME;
 
