@@ -177,7 +177,7 @@ export default {
             })
             this.successfulData = res
             this.$store.commit('auth/logInOutUser', true)
-            this.$router.push('/Playlists')
+            this.$router.push({ name: 'playlists' })
           }
         }
       } else {
@@ -188,7 +188,7 @@ export default {
     logOutUser() {
       this.$cookies.remove('apollo-token')
       this.$store.commit('auth/logInOutUser', false)
-      this.$router.push('/')
+      this.$router.push({ name: 'home' })
     }
   }
 }

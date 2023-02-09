@@ -24,7 +24,7 @@
       >
         <div id="cover">
           <NuxtLink :to="'/playlist/' + playlist.id">
-            <img :src="playlist.image" class="cover_image" />
+            <img :src="playlist.image" class="cover_image lazyload" />
           </NuxtLink>
         </div>
 

@@ -8,14 +8,15 @@ export default {
   },
 
   app: {
-    name: 'Ulysse Lacour',
-    shortName: 'ulysse lacour',
-    description: 'Ulysse Lacour portfolio, french web developper.',
+    name: 'Jolify',
+    shortName: 'Jolify',
+    description:
+      'Jolify allows you to share your Spotify playlist in jolified way.',
     author: 'Ulysse Lacour',
 
-    title: 'ulysselacour',
+    title: 'Jolify',
     titleSeparator: ' — ',
-    titleTemplate: 'portfolio',
+    titleTemplate: 'home',
 
     charset: 'utf-8',
     lang: 'en-US',
