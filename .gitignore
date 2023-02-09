@@ -23,14 +23,15 @@ package-lock.json
 # Nuxt build output
 .nuxt
 
-# Nuxt generate
+# Nuxt build/generate
 dist
 
 # Service worker
 static/sw.*
 public/sw.*
 
-
-
-# Dev files :
+# Dev files
 importedCSS.css
+
+# PM2
+ecosystem.config.js

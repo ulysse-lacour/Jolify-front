@@ -1,4 +1,4 @@
-# ulysselacour.com
+# JOLIFY APP
 
 - [Techs](#Techs)
   - [Nuxt](#Nuxt)
@@ -203,7 +203,7 @@ First of all :
 # install dependencies
 npm install
 # build for production
-npm run generate
+npm run build
 ```
 
 ### Deplpoy (PM2)

@@ -12,11 +12,14 @@
 
       <span v-if="error" class="error text-red-600 mb-4">{{ error }}</span>
 
-      <form
-        v-if="!$store.state.auth.isAuth"
-        class="flexxx"
-        @submit.prevent="onSubmit"
-      >
+      <div v-if="$store.state.auth.isAuth">
+        <div class="text-center">You are logged in !</div>
+        <button class="log-button" type="button" @click="logOutUser">
+          Logout
+        </button>
+      </div>
+
+      <form v-else class="flexxx" @submit.prevent="onSubmit">
         <div class="input-form flexxx">
           <input
             v-model="credentials.username"
@@ -51,13 +54,6 @@
         </div>
         <button class="log-button" type="submit">LOGIN</button>
       </form>
-
-      <div v-else>
-        <div class="text-center">You are logged in !</div>
-        <button class="log-button" type="button" @click="logOutUser">
-          Logout
-        </button>
-      </div>
     </div>
   </main>
 </template>
@@ -115,7 +111,7 @@ export default {
             })
             this.successfullData = data.loginUser
             this.$store.commit('auth/logInOutUser', true)
-            this.$router.push('/Playlists')
+            this.$router.push({ name: 'playlists' })
           }
         })
         .catch(error => {
@@ -127,7 +123,7 @@ export default {
     logOutUser() {
       this.$cookies.remove('apollo-token')
       this.$store.commit('auth/logInOutUser', false)
-      this.$router.push('/')
+      this.$router.push({ name: 'home' })
     }
   }
 }

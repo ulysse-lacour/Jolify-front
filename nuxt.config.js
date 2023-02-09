@@ -2,7 +2,7 @@ import config from './config'
 import routes from './pages/routes'
 
 export default {
-  ssr: false,
+  // ssr: false,
   target: 'server',
 
   modern: !config.isDev && 'client',
@@ -37,12 +37,7 @@ export default {
   ],
 
   // Modules for dev and build: https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    '@nuxt/postcss8',
-    'nuxt-font-loader',
-    'nuxt-gsap-module',
-    'nuxt-lazysizes'
-  ],
+  buildModules: ['@nuxt/postcss8', 'nuxt-gsap-module', 'nuxt-lazysizes'],
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -57,7 +52,7 @@ export default {
   apollo: {
     clientConfigs: {
       default: {
-        // httpEndpoint: 'https://musik.ulysselacour.com/graphql/', // Your SERVER endpoint
+        // httpEndpoint: 'https://musik.ulysselacour.com/graphql/' // Your SERVER endpoint
         httpEndpoint: 'http://127.0.0.1:8000/graphql/' // Your LOCAL endpoint
       }
     },
@@ -232,10 +227,6 @@ export default {
       lastmod: new Date(),
       lastmodrealtime: true
     }
-  },
-
-  fontLoader: {
-    url: '/fonts/font-face.css'
   },
 
   colorMode: {

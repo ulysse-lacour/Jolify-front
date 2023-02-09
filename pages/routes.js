@@ -23,6 +23,11 @@ const routes = [
     name: 'playlists',
     path: '/playlists',
     component: 'pages/playlists/index.vue'
+  },
+  {
+    name: 'playlist',
+    path: '/playlist/:playlist',
+    component: 'pages/_playlist/index.vue'
   }
 ]
 

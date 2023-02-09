@@ -200,10 +200,9 @@ export default {
 
   methods: {
     logOutUser() {
+      this.$router.push({ name: 'home' })
       this.$cookies.remove('apollo-token')
-      // this.$cookies.remove('refreshToken')
       this.$store.commit('auth/logInOutUser', false)
-      this.$router.push('/')
     },
 
     disableScrolling() {
@@ -359,7 +358,7 @@ export default {
 
   .header_pipe {
     margin: 1rem;
-    font-size: xx-large;
+    font-size: large;
   }
 
   .header_logout {
@@ -417,10 +416,6 @@ export default {
     -webkit-transform: scale(1.1); /* Safari 3-8 */
     transform: scale(1.1);
     transition: 0.5s;
-  }
-
-  .header_pipe {
-    font-size: x-large;
   }
 }
 </style>
