@@ -2,7 +2,7 @@ import config from './config'
 import routes from './pages/routes'
 
 export default {
-  ssr: false,
+  // ssr: false,
   target: 'server',
 
   modern: !config.isDev && 'client',
