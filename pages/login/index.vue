@@ -1,22 +1,10 @@
 <template>
   <main id="content" class="flexxx w-screen">
     <div class="login-form flexxx w-2/4">
-      <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
-      <input style="display: none" type="text" name="fakeusernameremembered" />
-      <input
-        style="display: none"
-        type="password"
-        name="fakepasswordremembered"
-      />
-      <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+      <span class="error text-red-600 mb-4">{{ error }}</span>
 
-      <span v-if="error" class="error text-red-600 mb-4">{{ error }}</span>
-
-      <div v-if="$store.state.auth.isAuth">
-        <div class="text-center">You are logged in !</div>
-        <button class="log-button" type="button" @click="logOutUser">
-          Logout
-        </button>
+      <div v-if="submitting" class="loader">
+        <div class="lds-dual-ring"></div>
       </div>
 
       <form v-else class="flexxx" @submit.prevent="onSubmit">
@@ -62,11 +50,12 @@
 import authenticateUserGql from '~/gql/authenticateUser.gql'
 
 export default {
+  middleware: 'isNotAuth',
+
   data() {
     return {
       submitting: false,
       error: null,
-      successfullData: null,
       credentials: {
         username: '',
         password: ''
@@ -99,17 +88,15 @@ export default {
           variables: credentials
         })
         .then(({ data }) => {
-          this.successfullData = data.loginUser
-          this.submitting = false
           if (data.loginUser.success === false) {
             // Clean error returned by backend
+            this.submitting = false
             this.error = data.loginUser.details
           } else {
             // Success submit
             this.$apolloHelpers.onLogin(data.loginUser.token, undefined, {
               expires: 7
             })
-            this.successfullData = data.loginUser
             this.$store.commit('auth/logInOutUser', true)
             this.$router.push({ name: 'playlists' })
           }
@@ -119,11 +106,6 @@ export default {
           this.submitting = false
           this.error = error
         })
-    },
-    logOutUser() {
-      this.$cookies.remove('apollo-token')
-      this.$store.commit('auth/logInOutUser', false)
-      this.$router.push({ name: 'home' })
     }
   }
 }
@@ -137,7 +119,7 @@ export default {
   border: 1px solid rgb(12, 12, 12);
   border-radius: 16px;
   padding: 0.5rem 1rem;
-  margin: 2rem;
+  margin: 1rem;
   transition: 0.5s;
 }
 
@@ -253,5 +235,10 @@ input[type='checkbox']:hover + label {
   box-shadow: 0 0 0px 1000px #ffff inset;
   -webkit-box-shadow: 0 0 0px 1000px #ffff inset;
   font-size: large;
+}
+
+.success {
+  font-family: 'Chillax-Semibold';
+  font-size: 1.25rem;
 }
 </style>

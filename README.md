@@ -204,6 +204,8 @@ First of all :
 npm install
 # build for production
 npm run build
+# if static site build with
+npm run generate
 ```
 
 ### Deplpoy (PM2)

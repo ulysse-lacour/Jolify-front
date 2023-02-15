@@ -87,7 +87,7 @@ export default {
     enter(el, done) {
       this.$gsap.to(el, {
         opacity: 1,
-        duration: 0.5,
+        duration: 0.25,
         ease: 'power2.inOut',
         onComplete: done
       })
@@ -96,7 +96,7 @@ export default {
     leave(el, done) {
       this.$gsap.to(el, {
         opacity: 0,
-        duration: 0.5,
+        duration: 0.25,
         ease: 'power2.inOut',
         onComplete: done
       })
@@ -137,6 +137,12 @@ export default {
         name: 'robots',
         content:
           'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1'
+      },
+      {
+        hid: 'ahrefs-site-verification',
+        name: 'ahrefs-site-verification',
+        content:
+          'b4992c116d5d9c7e5f2b8d147428875b94ed6c4b5fb81e1a9351952aecf8174c'
       }
     ],
     link: [{ rel: 'icon', type: 'image/png', href: '/favicon.png' }]
