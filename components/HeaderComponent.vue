@@ -190,12 +190,14 @@
 
 <script>
 export default {
-  mounted() {
+  fetch() {
     // Look for auth cookie to auto-log user
     const authCookie = this.$cookies.get('apollo-token')
-    authCookie
-      ? this.$store.commit('auth/logInOutUser', true)
-      : this.$store.commit('auth/logInOutUser', false)
+    if (authCookie == null) {
+      this.$store.commit('auth/logInOutUser', false)
+    } else {
+      this.$store.commit('auth/logInOutUser', true)
+    }
   },
 
   methods: {

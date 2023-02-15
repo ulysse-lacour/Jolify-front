@@ -1,129 +1,128 @@
 <template>
   <main id="content" class="flexxx w-screen">
-    <div class="register-form flexxx w-3/4">
-      <div class="register_header">Register :</div>
+    <div class="flexxx w-3/4">
+      <span class="error text-red-600 mb-4">{{ error }}</span>
 
-      <span v-if="error" class="error text-red-600 mb-4">{{ error }}</span>
+      <div v-if="submitting" class="loader">
+        <div class="lds-dual-ring"></div>
+      </div>
 
-      <form
-        v-if="!$store.state.auth.isAuth"
-        id="desktop_register"
-        class="flexxx w-full"
-        @submit.prevent="onSubmit"
-      >
-        <div class="grid grid-cols-2 gap-x-12 w-full">
-          <div class="relative z-0 mb-6 w-full group">
-            <input
-              v-model="credentials.username"
-              type="text"
-              class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
-              placeholder="Username"
-              required
-            />
+      <div v-else class="register-form">
+        <form
+          v-if="!$store.state.auth.isAuth"
+          id="desktop_register"
+          class="flexxx w-full"
+          @submit.prevent="onSubmit"
+        >
+          <div class="grid grid-cols-2 gap-x-12 w-full">
+            <div class="relative z-0 mb-6 w-full group">
+              <input
+                v-model="credentials.username"
+                type="text"
+                class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <input
+                v-model="credentials.email"
+                type="email"
+                class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
+                placeholder="Email (same as Spotify account)"
+                required
+              />
+            </div>
           </div>
-          <div class="relative z-0 mb-6 w-full group">
-            <input
-              v-model="credentials.email"
-              type="email"
-              class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
-              placeholder="Email (same as Spotify account)"
-              required
-            />
-          </div>
-        </div>
 
-        <div class="grid grid-cols-2 gap-x-12 w-full">
-          <div class="relative z-0 mb-6 w-full group">
-            <input
-              v-model="credentials.password"
-              type="password"
-              class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
-              placeholder="Password"
-              required
-            />
+          <div class="grid grid-cols-2 gap-x-12 w-full">
+            <div class="relative z-0 mb-6 w-full group">
+              <input
+                v-model="credentials.password"
+                type="password"
+                class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <input
+                v-model="credentials.passwordConfirmation"
+                type="password"
+                class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
+                placeholder="Confirm password"
+                required
+              />
+            </div>
           </div>
-          <div class="relative z-0 mb-6 w-full group">
-            <input
-              v-model="credentials.passwordConfirmation"
-              type="password"
-              class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
-              placeholder="Confirm password"
-              required
-            />
-          </div>
-        </div>
-        <button class="register-button" type="submit">SUBMIT</button>
-      </form>
+          <button class="register-button" type="submit">SIGN IN</button>
+        </form>
 
-      <form
-        v-if="!$store.state.auth.isAuth"
-        id="mobile_register"
-        class="flexxx w-full"
-        @submit.prevent="onSubmit"
-      >
-        <div class="grid grid-cols-1 gap-x-12 w-full">
-          <div class="relative z-0 mb-6 w-full group">
-            <input
-              v-model="credentials.username"
-              type="text"
-              class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
-              placeholder="Username"
-              required
-            />
+        <form
+          v-if="!$store.state.auth.isAuth"
+          id="mobile_register"
+          class="flexxx w-full"
+          @submit.prevent="onSubmit"
+        >
+          <div class="grid grid-cols-1 gap-x-12 w-full">
+            <div class="relative z-0 mb-6 w-full group">
+              <input
+                v-model="credentials.username"
+                type="text"
+                class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
+                placeholder="Username"
+                required
+              />
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <input
+                v-model="credentials.email"
+                type="email"
+                class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
+                placeholder="Email (same as Spotify account)"
+                required
+              />
+            </div>
           </div>
-          <div class="relative z-0 mb-6 w-full group">
-            <input
-              v-model="credentials.email"
-              type="email"
-              class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
-              placeholder="Email (same as Spotify account)"
-              required
-            />
-          </div>
-        </div>
 
-        <div class="grid grid-cols-1 gap-x-12 w-full">
-          <div class="relative z-0 mb-6 w-full group">
-            <input
-              v-model="credentials.password"
-              type="password"
-              class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
-              placeholder="Password"
-              required
-            />
+          <div class="grid grid-cols-1 gap-x-12 w-full">
+            <div class="relative z-0 mb-6 w-full group">
+              <input
+                v-model="credentials.password"
+                type="password"
+                class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
+                placeholder="Password"
+                required
+              />
+            </div>
+            <div class="relative z-0 mb-6 w-full group">
+              <input
+                v-model="credentials.passwordConfirmation"
+                type="password"
+                class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
+                placeholder="Confirm password"
+                required
+              />
+            </div>
           </div>
-          <div class="relative z-0 mb-6 w-full group">
-            <input
-              v-model="credentials.passwordConfirmation"
-              type="password"
-              class="register-input py-2.5 px-0 w-full text-gray-900 bg-transparent"
-              placeholder="Confirm password"
-              required
-            />
-          </div>
-        </div>
-        <button class="register-button" type="submit">SUBMIT</button>
-      </form>
-
-      <div v-else>
-        <div class="text-center">You are logged in !</div>
-        <button class="register-button" type="button" @click="logOutUser">
-          Logout
-        </button>
+          <button class="register-button" type="submit">SIGN IN</button>
+        </form>
       </div>
     </div>
   </main>
 </template>
 
 <script>
+// GRAPHQL IMPORTS
 import createUserGql from '~/gql/createUser.gql'
 
 export default {
+  middleware: 'isNotAuth',
+
   data() {
     return {
       submitting: false,
       error: null,
-      successfullData: null,
       credentials: {
         username: '',
         password: '',
@@ -166,9 +165,9 @@ export default {
             this.error = error
           })
         if (this.error == null) {
-          this.submitting = false
           if (res.success === false) {
             // Clean error returned by backend
+            this.submitting = false
             this.error = res.details
           } else {
             // Success submit
@@ -183,12 +182,6 @@ export default {
       } else {
         this.error = "Passwords doesn't match, retry !"
       }
-    },
-
-    logOutUser() {
-      this.$cookies.remove('apollo-token')
-      this.$store.commit('auth/logInOutUser', false)
-      this.$router.push({ name: 'home' })
     }
   }
 }
@@ -215,12 +208,8 @@ export default {
   justify-content: center;
 }
 
-.register_header {
-  font-family: 'Chillax-Medium';
-  text-align: center;
-  font-size: x-large;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+.register-form {
+  width: 75vw;
 }
 
 .register-button {
@@ -230,7 +219,7 @@ export default {
   border: 1px solid rgb(12, 12, 12);
   border-radius: 16px;
   padding: 0.5rem 1rem;
-  margin: 2rem;
+  margin: 1rem;
   transition: 0.5s;
 }
 
@@ -310,6 +299,11 @@ input[type='password']:focus::-webkit-input-placeholder {
   box-shadow: 0 0 0px 1000px #ffff inset;
   -webkit-box-shadow: 0 0 0px 1000px #ffff inset;
   font-size: large;
+}
+
+.success {
+  font-family: 'Chillax-Semibold';
+  font-size: 1.25rem;
 }
 
 @media screen and (max-width: 1024px) {
